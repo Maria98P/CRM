@@ -1,25 +1,38 @@
-
-###> symfony/framework-bundle ###
+### Symfony Framework ###
+# Environment files
+/.env
 /.env.local
 /.env.local.php
 /.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
+
+# Symfony-specific files and directories
+/config/secrets/*
 /var/
 /vendor/
-###< symfony/framework-bundle ###
-
-###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
-###< phpunit/phpunit ###
-
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
-
-###> symfony/asset-mapper ###
+/public/bundles/
 /public/assets/
 /assets/vendor/
-###< symfony/asset-mapper ###
+
+### PHPUnit ###
+/phpunit.xml
+/.phpunit.result.cache
+
+### Node.js (if applicable) ###
+/node_modules/
+
+### IDE and System Files ###
+# JetBrains IDEs (e.g., PhpStorm)
+.idea/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs and cache
+/logs/
+/cache/
+
+### Other ###
+/composer.lock
