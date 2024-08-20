@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Review{% endblock %}
+
+{% block body %}
+<style>
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(232, 184, 36);
+    margin-top: 20px;
+}
+</style>
+<div class=" pageTitle m-2 text-center">
+    <h1>Review</h1>
+    </div>
+
+    <a class="m-5" href="{{ path('app_review_index') }}">&#9664;&#9664; back to list</a>
+
+
+<div class="container mt-5">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ review.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ review.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if is_granted('ROLE_ADMIN') %}
+
+    {# <a class="btn btn-warning" href="{{ path('app_review_edit', {'id': review.id}) }}">edit</a> #}
+
+    {{ include('review/_delete_form.html.twig') }}
+    {% endif %}
+
+    </div>
+{% endblock %}

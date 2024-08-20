@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	<style>
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(232, 184, 36);
+    margin-top: 20px;
+}
+</style>
+<div class=" pageTitle m-2 text-center">
+		<h1>Register</h1>
+	</div>
+
+
+	<div class="container mt-5">
+
+	{{ form_errors(registrationForm) }}
+
+	{{ form_start(registrationForm) }}
+	{{ form_row(registrationForm.fname) }}
+	{{ form_row(registrationForm.lname) }}
+	{{ form_row(registrationForm.email) }}
+	{{ form_row(registrationForm.phone) }}
+	{{ form_row(registrationForm.date_of_birth) }}
+	{{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+	{{ form_row(registrationForm.agreeTerms) }}
+
+	<button type="submit" class="btn btn-primary">Register</button>
+	{{ form_end(registrationForm) }}
+
+	</div>
+{% endblock %}

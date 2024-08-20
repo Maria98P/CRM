@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MapController!{% endblock %}
+
+{% block body %}
+<style>
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(232, 184, 36);
+    margin-top: 20px;
+}
+</style>
+<head>
+    <title>Google Maps in Symfony</title>
+</head>
+<body>
+  <h1>My Business Location</h1>
+  <div class="mapsContainer">
+      <div class="contact-info">
+          <h2>Contact Information</h2>
+          <p><strong>Address:</strong>Lange Gasse 72, 1080 Vienna </p>
+          <p><strong>Phone:</strong> +43 670 2346111</p>
+          <p><strong>Email:</strong> contact@mybusiness.com</p>
+      </div>
+      <div id="map"></div>
+  </div>
+
+  <script>
+    function initMap() {
+      var location = { lat: 48.213998, lng: 16.3513443 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+          center: location,
+          streetViewControl: false, 
+          zoomControl: false, 
+          scrollwheel: false, 
+          disableDoubleClickZoom: true, 
+          fullscreenControl: false, 
+          mapTypeControl: false 
+      });
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map
+      });
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
+  </script>
+</body>
+ 
+{% endblock %}

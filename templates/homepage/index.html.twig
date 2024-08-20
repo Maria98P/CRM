@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block title %}Welcome to Toy Wonderland!{% endblock %}
+{% block body %}
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px / 1.5 sans-serif;
+        }
+        .example-wrapper code {
+            background: #F5F5F5;
+            padding: 2px 6px;
+        }
+        .index_card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        }
+    </style>
+    <div class="hero-wrapper">
+        <div class="hero">
+            <div class="hero-content">            
+            {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
+                    <h1>Welcome to TOY WONDERLAND!</h1>
+                    <p>Check out these fun, creative, educational and sensory toys!</p>
+                    <p>Foster your child's imagination, social and motor skills, </p>
+                    <p>have your own adventures and create memories.</p>
+                    <div class="button-container">
+                        <button onclick="window.location.href='/static'">Products</button>
+                        <button onclick="window.location.href='/register'">Register</button>
+                  
+                {% endif %}
+            </div>
+                
+            </div>
+        </div>
+    </div>
+    <h2>Our Products</h2>
+    <div class="container text-center">
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4  ">
+                {% for product in products %}
+                    <div class="col mb-3">
+                        <div class="card  index_card" style="width: 100%;">
+                            <img src="{{ asset('uploads/' ~ product.picture) }}" alt="{{ product.name }}" class="card-img-top" width="150">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text"> Price: {{ product.price }} </p>
+                                <p class="card-text"> Category: {{ product.category }} </p>
+                                <p class="card-text"> {{ product.description }} </p>
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

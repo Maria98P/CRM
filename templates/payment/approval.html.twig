@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Payment Success{% endblock %}
+
+{% block body %}
+<h1>Payment Successful</h1>
+<p>Your payment has been processed successfully.</p>
+
+<a href="{{path ('app_homepage')}}" class="btn btn-primary">Back to Home</a>
+{% endblock %}

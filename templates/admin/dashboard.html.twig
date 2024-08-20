@@ -1,0 +1,33 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content %}
+<style>
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(232, 184, 36);
+    margin-top: 20px;
+}
+</style>
+    <h1>Dashboard</h1>
+
+    <div class="container">
+        <div class="">
+            <div class="col-md-3">
+                <div class="">
+                    <div class="">Users</div>
+                    <div class="card-footer ">
+                        <span class="">{{ userCount }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {# <div class="col-md-12">
+                <h2>Location of the Business in Vienna</h2>
+                <img src="https://maps.googleapis.com/maps/api/staticmap?center=Vienna,Austria&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C48.2082,16.3738" alt="Business Location in Vienna">
+            </div> #}
+        </div>
+    </div>
+{% endblock %}
+

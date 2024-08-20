@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Questions index{% endblock %}
+
+{% block body %}
+<style>
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(232, 184, 36);
+    margin-top: 20px;
+}
+</style>
+    <div class=" pageTitle m-2 text-center">
+        <h1>Questions Index</h1>
+    </div>
+
+     <div>
+            <a  class="m-5" href="{{ path ('app_homepage')}}"> &#9664;&#9664; Back to Home</a>
+    </div>
+
+    <div class="container mt-5">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Question</th>
+                <th>actions</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.id }}</td>
+                <td>{{ question.question }}</td>
+                {# {% if is_granted('ROLE_ADMIN') %} #}
+                {# <td>
+                    
+                    <a class="btn btn-warning" href="{{ path('app_questions_edit', {'id': question.id}) }}">edit</a>
+                </td> #}
+                {# {% endif %} #}
+
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_questions_show', {'id': question.id}) }}">show</a>
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    
+{% endblock %}
